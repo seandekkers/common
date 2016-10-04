@@ -1,12 +1,268 @@
 
+<!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="dist/build.css">
-    <title>Common House </title>
-  </head>
-  <body>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Sean Dekkers | Design</title>
+<style>
 
-    <script type="text/javascript" src="js/two.js"></script>
-    <script type="text/javascript" src="dist/build.js"></script>
-  </body>
+
+  .parallax {
+    height: 500px; /* fallback for older browsers */
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-perspective: 300px;
+    perspective: 300px;
+    -webkit-perspective-origin-x: 100%;
+    perspective-origin-x: 100%;
+  }
+
+  .parallax__group {
+    position: relative;
+    height: 500px; /* fallback for older browsers */
+    height: 100vh;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+
+  .parallax__layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transform-origin-x: 100%;
+    transform-origin-x: 100%;
+  }
+
+  .parallax__layer--fore {
+    -webkit-transform: translateZ(90px) scale(.7);
+    transform: translateZ(90px) scale(.7);
+    z-index: 1;
+  }
+
+  .parallax__layer--base {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    z-index: 4;
+  }
+
+  .parallax__layer--back {
+    -webkit-transform: translateZ(-300px) scale(2.1);
+    transform: translateZ(-300px) scale(2.1);
+    z-index: 3;
+  }
+
+  .parallax__layer--deep {
+    -webkit-transform: translateZ(-600px) scale(3.1);
+    transform: translateZ(-600px) scale(3.1);
+    z-index: 2;
+  }
+
+
+  /* demo styles
+  --------------------------------------------- */
+
+  body, html {
+    overflow: hidden;
+  }
+
+  body {
+    font: 100% / 1.5 Arial;
+  }
+
+  * {
+    margin:0;
+    padding:0;
+  }
+
+  .parallax {
+    font-size: 200%;
+  }
+
+   /* centre the content in the parallax layers */
+  .title {
+    text-align: center;
+    position: absolute;
+    z-index: 6;
+    left: 50%;
+    top: 0px;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+  .titleBox {
+  	text-align: center;
+    position: absolute;
+    z-index: 7;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    /*border-radius: 4px;
+    background: rgb(236,134,34);
+    color: white;
+    padding: 0px; 
+    width: 300px;
+    height: 40px; 
+    text-align: center;
+    vertical-align: middle;
+    font-size: 22px;
+    font-weight: regular;*/
+
+	
+    
+  }
+
+   .logo {
+    /*position: absolute;*/
+    /*z-index: 6;*/
+    /*bottom: 1vh;*/
+    /*top: auto;*/
+    /*font-size:80%;*/
+    text-align:center;
+    width: 100%;
+ 
+  }
+
+    .logo {
+  	/*background-image: url("img/box.png") */
+    position: absolute;
+    /*color:white;*/
+    z-index:6;
+    top: 1vh;
+    /*top: auto;*/
+    /*font-size:80%;*/
+    text-align:center;
+    width: 100%;
+  }
+
+  /* style the groups
+  --------------------------------------------- */
+
+  #group1 {
+    z-index: 5; /* slide over group 2 */
+    /*content:url("img/bkg.jpg");*/
+  }
+  #group1 .parallax__layer--base {
+      background: url("img/bkg.jpg");
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      z-index:6;
+      min-height: 576px;
+      min-width: 1024px;
+   /*   z-index: 5;*/
+
+      width: 100%;
+      height: auto;
+      
+      /* Set up positioning */
+      position: fixed;
+      top: 0;
+      left: 0;
+  }
+
+  #group2 {
+    z-index: 3; /* slide under groups 1 and 3 */
+
+  }
+  #group2 .parallax__layer--back {
+    content: url("img/PAGE2.jpg");
+    /* Set rules to fill background */
+      min-height: 576px;
+      min-width: 1024px;
+      
+      /* Set up proportionate scaling */
+      width: 100%;
+      height: auto;
+      
+      /* Set up positioning */
+      position: fixed;
+      top: 0;
+      left: 0;
+
+  }
+
+  #group3 {
+    z-index: 4; /* slide over group 2 and 4 */
+  }
+  #group3 .parallax__layer--base {
+    content:url("img/PAGE3.jpg");
+    /* Set rules to fill background */
+      min-height: 576px;
+      min-width: 1024px;
+      
+      /* Set up proportionate scaling */
+      width: 100%;
+      height: auto;
+      
+      /* Set up positioning */
+      position: fixed;
+      top: 0;
+      left: 0;
+  }
+
+  #group4 {
+    z-index: 3; /* slide under group 3 and 5 */
+  }
+  #group4 .parallax__layer--back {
+    content:url("img/BOTTOM.jpg");
+    /* Set rules to fill background */
+      min-height: 100%;
+      min-width: 1024px;
+      
+      /* Set up proportionate scaling */
+      width: 100%;
+      height: auto;
+      
+      /* Set up positioning */
+      position: fixed;
+      bottom: 0;
+      left: 0;
+  }
+
+  
+
+
+  /* misc
+  --------------------------------------------- */
+
+
+
+</style>
+
+</head>
+
+<body>
+ 
+
+ <div class="logo"><img src="img/LOGO.png"></div>
+
+
+  <div class="parallax">
+    <div id="group1" class="parallax__group">
+      <div class="parallax__layer parallax__layer--base">
+      <div class="titleBox"><a href="http://commonhouse.herokuapp.com/common.html"><img src="img/BUTTON.png"></a></div>
+      </div>
+    </div>
+    <div id="group2" class="parallax__group">
+      <div class="parallax__layer parallax__layer--back">
+      	<div class="title">Base Layer</div>
+      </div>
+    </div>
+    <div id="group3" class="parallax__group">
+      <div class="parallax__layer parallax__layer--base">
+      	<div class="title">Base Layer</div>
+      </div>
+    </div>
+    <div id="group4" class="parallax__group">
+      <div class="parallax__layer parallax__layer--back">
+      </div>
+    </div>
+  </div>
+
+
+</body>
 </html>
