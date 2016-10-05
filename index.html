@@ -101,12 +101,20 @@
     top: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+   }
+
+    .animatedGif {
+    position: absolute;
+    z-index: 8;
+    left: 76%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     
 
 	
     
   }
-
   
 
     .logo {
@@ -125,7 +133,7 @@
   --------------------------------------------- */
 
   #group1 {
-    z-index: 5; /* slide over group 2 */
+    z-index: 3; /* slide over group 2 */
    
   }
   #group1 .parallax__layer--base {
@@ -150,10 +158,10 @@
     z-index: 3; /* slide under groups 1 and 3 */
 
   }
-  #group2 .parallax__layer--back {
+  #group2 .parallax__layer--base {
     content: url("img/PAGE2.jpg");
     /* Set rules to fill background */
-      min-height: 576px;
+      height: 1080px;
       min-width: 1024px;
       
       /* Set up proportionate scaling */
@@ -168,10 +176,14 @@
   }
 
   #group3 {
-    z-index: 4; /* slide over group 2 and 4 */
+    z-index: 3; /* slide over group 2 and 4 */
   }
   #group3 .parallax__layer--base {
-    content:url("img/PAGE3.jpg");
+    background: url("img/PAGE3.jpg");
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      z-index:6;
+    
     /* Set rules to fill background */
       min-height: 576px;
       min-width: 1024px;
@@ -189,8 +201,11 @@
   #group4 {
     z-index: 3; /* slide under group 3 and 5 */
   }
-  #group4 .parallax__layer--back {
-    content:url("img/BOTTOM.jpg");
+  #group4 .parallax__layer--base {
+  	background: url("img/BOTTOM.jpg");
+      background-repeat: no-repeat;
+      background-size: 100% auto;
+      z-index:6;
     /* Set rules to fill background */
       min-height: 100%;
       min-width: 1024px;
@@ -230,17 +245,17 @@
       </div>
     </div>
     <div id="group2" class="parallax__group">
-      <div class="parallax__layer parallax__layer--back">
+      <div class="parallax__layer parallax__layer--base">
       	<div class="title">Base Layer</div>
       </div>
     </div>
     <div id="group3" class="parallax__group">
       <div class="parallax__layer parallax__layer--base">
-      	<div class="title">Base Layer</div>
+      <div class="animatedGif"><img src="img/ANIMATED_GIF.gif"></div>
       </div>
     </div>
     <div id="group4" class="parallax__group">
-      <div class="parallax__layer parallax__layer--back">
+      <div class="parallax__layer parallax__layer--base">
       </div>
     </div>
   </div>
